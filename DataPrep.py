@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Nov  4 12:00:49 2017
-
-@author: NishitP
-"""
 #import os
 import pandas as pd
 import csv
@@ -17,7 +11,6 @@ import seaborn as sb
 #before reading the files, setup the working directory to point to project repo
 #reading data files 
 
-
 test_filename = 'test.csv'
 train_filename = 'train.csv'
 valid_filename = 'valid.csv'
@@ -26,18 +19,17 @@ train_news = pd.read_csv(train_filename)
 test_news = pd.read_csv(test_filename)
 valid_news = pd.read_csv(valid_filename)
 
-
-
 #data observation
 def data_obs():
     print("training dataset size:")
     print(train_news.shape)
     print(train_news.head(10))
 
-    #below dataset were used for testing and validation purposes
+    #below dataset were used for testing purposes
     print(test_news.shape)
     print(test_news.head(10))
-    
+
+    #below dataset were used for validating purposes
     print(valid_news.shape)
     print(valid_news.head(10))
 
@@ -60,18 +52,9 @@ create_distribution(valid_news)
 #none of the datasets contains missing values therefore no cleaning required
 def data_qualityCheck():
     
-    print("Checking data qualitites...")
     train_news.isnull().sum()
-    train_news.info()
-        
-    print("check finished.")
-
-    #below datasets were used to 
     test_news.isnull().sum()
-    test_news.info()
-
     valid_news.isnull().sum()
-    valid_news.info()
 
 #run the below function call to see the quality check results
 #data_qualityCheck()
@@ -119,6 +102,7 @@ def create_bigrams(words):
         #set it as unigram
         lst = create_unigram(words)
     return lst
+
 
 """
 #trigrams
