@@ -103,54 +103,11 @@ def create_bigrams(words):
         lst = create_unigram(words)
     return lst
 
-
-"""
-#trigrams
-def create_trigrams(words):
-    assert type(words) == list
-    skip == 0
-    join_str = " "
-    Len = len(words)
-    if L > 2:
-        lst = []
-        for i in range(1,skip+2):
-            for k1 in range(1, skip+2):
-                for k2 in range(1,skip+2):
-                    for i+k1 < Len and i+k1+k2 < Len:
-                        lst.append(join_str.join([words[i], words[i+k1],words[i+k1+k2])])
-        else:
-            #set is as bigram
-            lst = create_bigram(words)
-    return lst
-"""
-
-
 porter = PorterStemmer()
 
 def tokenizer(text):
     return text.split()
 
-
 def tokenizer_porter(text):
     return [porter.stem(word) for word in text.split()]
 
-#doc = ['runners like running and thus they run','this is a test for tokens']
-#tokenizer([word for line in test_news.iloc[:,1] for word in line.lower().split()])
-
-#show the distribution of labels in the train and test data
-"""def create_datafile(filename)
-    #function to slice the dataframe to keep variables necessary to be used for classification
-    return "return df to be used"
-"""
-    
-"""#converting multiclass labels present in our datasets to binary class labels
-for i , row in data_TrainNews.iterrows():
-    if (data_TrainNews.iloc[:,0] == "mostly-true" | data_TrainNews.iloc[:,0] == "half-true" | data_TrainNews.iloc[:,0] == "true"):
-        data_TrainNews.iloc[:,0] = "true"
-    else :
-        data_TrainNews.iloc[:,0] = "false"
-        
-for i,row in data_TrainNews.iterrows():
-    print(row)
-"""
-    
