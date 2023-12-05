@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Nov  5 12:58:52 2017
-
-@author: NishitP
-"""
-
 import DataPrep
 import FeatureSelection
 import numpy as np
@@ -27,11 +20,7 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import precision_recall_curve
 from sklearn.metrics import average_precision_score
 
-#string to test
-doc_new = ['obama is running for president in 2016']
-
 #the feature selection has been done in FeatureSelection.py module. here we will create models using those features for prediction
-
 #first we will use bag of words techniques
 
 #building classifier using naive bayes 
@@ -43,7 +32,6 @@ nb_pipeline.fit(DataPrep.train_news['Statement'],DataPrep.train_news['Label'])
 predicted_nb = nb_pipeline.predict(DataPrep.test_news['Statement'])
 np.mean(predicted_nb == DataPrep.test_news['Label'])
 
-
 #building classifier using logistic regression
 logR_pipeline = Pipeline([
         ('LogRCV',FeatureSelection.countV),
@@ -54,7 +42,6 @@ logR_pipeline.fit(DataPrep.train_news['Statement'],DataPrep.train_news['Label'])
 predicted_LogR = logR_pipeline.predict(DataPrep.test_news['Statement'])
 np.mean(predicted_LogR == DataPrep.test_news['Label'])
 
-
 #building Linear SVM classfier
 svm_pipeline = Pipeline([
         ('svmCV',FeatureSelection.countV),
@@ -64,18 +51,6 @@ svm_pipeline = Pipeline([
 svm_pipeline.fit(DataPrep.train_news['Statement'],DataPrep.train_news['Label'])
 predicted_svm = svm_pipeline.predict(DataPrep.test_news['Statement'])
 np.mean(predicted_svm == DataPrep.test_news['Label'])
-
-
-#using SVM Stochastic Gradient Descent on hinge loss
-sgd_pipeline = Pipeline([
-        ('svm2CV',FeatureSelection.countV),
-        ('svm2_clf',SGDClassifier(loss='hinge', penalty='l2', alpha=1e-3, n_iter=5))
-        ])
-
-sgd_pipeline.fit(DataPrep.train_news['Statement'],DataPrep.train_news['Label'])
-predicted_sgd = sgd_pipeline.predict(DataPrep.test_news['Statement'])
-np.mean(predicted_sgd == DataPrep.test_news['Label'])
-
 
 #random forest
 random_forest = Pipeline([
