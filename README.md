@@ -22,8 +22,8 @@ In this project, we used various NLP cleaning techniques to properly understand 
 
 ### Model
 
-1. Employed the PassiveAggressiveClassifier for classification.
-2. Plotted the confusion matrix and achieved accuracy of 55%
+1. Employed the PassiveAggressiveClassifier,Logistic Regression,Random Forest,KNN,Decision Tree,XG Bosst for classification.
+2. Plotted the confusion matrix and achieved accuracy of 61% with XG boost
 
 ### Steps to Contribute
 
@@ -35,21 +35,21 @@ Start by forking our repository to your GitHub account. This will create a copy 
 
 Clone the forked repository to your local machine using the following command:
 
-```bash
+```
 git clone https://github.com/YashSachan2/Fake_news_detection.git
 ```
 
 ### 3. Create a new branch for your feature or bug fix:
-    ```bash
+    ```
     git checkout -b feature-name
     ```
 ### 4. Make your changes and commit them with a clear and concise message:
-    ```bash
+    ```
     git add .
     git commit -m "Your clear and concise message"
     ```
 ### 5. Push your changes to your fork:
-    ```bash
+    ```
     git push origin feature-name
     ```
 ### 6. Open a pull request, referencing any relevant issues.
